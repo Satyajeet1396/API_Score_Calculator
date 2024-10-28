@@ -39,8 +39,14 @@ def calculate_api_score(row):
 st.title("API Score Calculator")
 st.write("Upload an Excel file to calculate the API score based on impact factors and author roles.")
 
-# Reference link for file format
-st.write("Please use the [Format.xlsx file](https://github.com/Satyajeet1396/API_Score_Calculator/blob/7208766232ba3c9a3c96a2fdff7c876834300efa/Format.xlsx) as a template for your data.")
+# Download template file button
+with open("Format.xlsx", "rb") as file:
+    st.download_button(
+        label="Download Template File",
+        data=file,
+        file_name="Format.xlsx",
+        mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    )
 
 uploaded_file = st.file_uploader("Upload your Excel file", type=["xlsx"])
 
@@ -69,6 +75,7 @@ if uploaded_file is not None:
             file_name=output_file,
             mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
         )
+
 
 st.info("Created by Dr. Satyajeet Patil")
 st.info("For more cool apps like this visit: https://patilsatyajeet.wixsite.com/home/python")
