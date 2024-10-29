@@ -1,6 +1,8 @@
 import pandas as pd
 import streamlit as st
 from io import BytesIO
+import qrcode
+import base64
 
 # Function to calculate base score based on impact factor
 def calculate_base_score(impact_factor):
