@@ -26,7 +26,8 @@ def calculate_api_score(row):
     num_authors = row.iloc[1]    # Column 2: No. of Authors
     author_role = row.iloc[2]    # Column 3: Author role
 
-    base_score = calculate_base_score(impact_factor)
+    # Add 8 points for peer-reviewed papers before calculating the score
+    base_score = calculate_base_score(impact_factor) + 8
 
     if num_authors == 1:
         return base_score
@@ -78,7 +79,6 @@ if uploaded_file is not None:
             file_name=output_file,
             mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
         )
-
 
 st.info("Created by Dr. Satyajeet Patil")
 st.info("For more cool apps like this visit: https://patilsatyajeet.wixsite.com/home/python")
