@@ -40,7 +40,7 @@ def calculate_api_score(row):
             return base_score * 0.3
 
 # Streamlit app layout
-st.title("API Score Calculator")
+st.title("Research API Score Calculator")
 st.write("Upload an Excel file to calculate the API score based on impact factors and author roles.")
 
 # Download template file button
